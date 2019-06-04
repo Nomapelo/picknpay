@@ -1,0 +1,77 @@
+Home page: User can browse products online.
+Authentication: User can sign-up/login/logout
+items for sale: User can view lists of items for sale and search by name, filter by price.
+Shopping Cart: User can add items to shopping cart and the app remembers it next time you login. User can view all the items in their shopping cart. User can delete items in the shopping cart. Shopping cart uses an integer column to store "state".
+Checkout: User can fill in form and submit billing info. After submitting billing info, items in the shopping cart will move to a different "state''
+
+ HOME PAGE:
+ 
+ The user should be able to browse through even if has not signed up/login yet.
+ The user must be able to select the province
+ Login/Sign up and shopping cart must appear in the home page
+ 
+ Registration:
+ 
+Create a sign up page /sign up
+sign up has a form, full name, email,password and confirmation password
+"Submit" button posts to register
+register creates a new user
+The user has to read and accept the conditions before it click the register button
+
+Login:
+
+Create a login page /login
+/login shows a form for username and password
+"Submit" button posts to login_user
+Sign up button in case the user is not registered
+Add forget link in-case the user forgets the password.
+Authentication:
+Create a new page that is only for logged in users. A members only page. Up to you what you want to show!
+If the user is logged in, show the page
+If not, redirect the user to the login page
+
+Items:
+Create a new Item Model with the following fields:
+Name, Description, Price
+Create several in the admin or shell
+Create new routes and templates to show a listing of the items
+items ->shows all items
+Create new route and template to show just one listing
+Create more then 10 items
+
+Search:
+
+Add search box to items listing page, search uses GET and query params to generate new page. The search query uses the name
+
+Filter:
+
+Allows user to filter by price
+Allows user to filter by brand
+Allows user to filter by discovery vitality
+Allows user to filter by unit of measure
+
+Shopping Cart:
+
+Create a new shopping cart
+An order belongs to a user, and has multiple items. A user can have many orders. An order has a status column, which is an integer field:
+1 In shopping cart
+2 Purchased
+For any given user, you can only have one order with a status equal to 1.
+When a user adds an item to the shopping cart, if there is no order with a status equal to 1, then create a new order for the user.
+Create a new route and view for cart
+cart shows what items are in that users cart
+To show cart, you will need to query for the right order - match the user (request.user) and set a condition where status is equal to one.
+Allow user to delete items from the cart
+Shows the total price of all items
+Allows them to purchase items, purchasing takes the user to payment form
+Update the /item/ template to have a "purchase" button - when clicked, the item is added to the order, and the user is redirected to cart
+
+Payment
+
+Create a new route and template for payments
+Create a form that allows the user to enter billing info
+On submit, the order id status changes to purchased
+
+Delivery
+
+The products have to be delivered to the customer
